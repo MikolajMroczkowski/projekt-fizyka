@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="pl">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>calcs</title>
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/styles.min.css">
+</head>
+
+<body class="text-center d-xxl-flex justify-content-xxl-center align-items-xxl-center" style="background: linear-gradient(-45deg, #154b48, #00ffd1);height: 100vh;">
+    <div class="d-xxl-flex" style="position: absolute;top: 1vh;left: 1vw;padding: 13px;border-radius: 14px;background: rgba(0,0,0,0.75);"><a href="/"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-chevron-left" style="border-color: rgb(255,255,255);color: rgb(255,255,255);font-size: 40px;">
+                <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"></path>
+            </svg></a></div>
+    <div class="d-xxl-flex justify-content-xxl-center">
+        <div style="background: rgba(0,0,0,0.75);padding: 2vw;box-shadow: 0px 0px 13px var(--bs-body-color);border-radius: 14px;cursor: pointer;margin: 1vw;width: 40vw;border-color: rgb(95,95,95);">
+            <h1 style="margin-right: 0;margin-bottom: 0;margin-left: 0;color: rgb(255,255,255);">obwód elektryczny</h1>
+            <p style="color: rgb(137,137,137);">Obliczne napięcia i natężenia w tym obwodzie</p>
+            <form style="margin: 10px;" method="get" action="/obwodElektryczny/compute" target="_self">
+                <div class="row" style="margin-top: 12px;margin-bottom: 20px;">
+                    <div class="col"><img src="{{ schema_uri }}" style="width: 100%;"></div>
+                    <div class="col"><input class="form-control" type="number" name="R1" placeholder="R1 (Ω)" style="margin: 5px;background: rgba(244,244,244,0.54);color: rgb(35,35,35);border-color: rgb(0,0,0);" step="0.001"><input class="form-control" type="number" name="R2" placeholder="R2 (Ω)" style="margin: 5px;background: rgba(244,244,244,0.54);color: rgb(35,35,35);border-color: rgb(0,0,0);" step="0.001"></div>
+                </div>
+                <div class="row">
+                    <div class="col"><input class="form-control" type="number" name="e1" placeholder="E1 (V)" style="margin: 5px;background: rgba(244,244,244,0.54);color: rgb(35,35,35);border-color: rgb(0,0,0);" step="0.001"></div>
+                    <div class="col"><input class="form-control" type="number" name="r1" placeholder="r1 (Ω)" style="margin: 5px;background: rgba(244,244,244,0.54);color: rgb(35,35,35);border-color: rgb(0,0,0);" step="0.001"></div>
+                </div>
+                <div class="row">
+                    <div class="col"><input class="form-control" type="number" name="e2" placeholder="E2 (V)" style="margin: 5px;background: rgba(244,244,244,0.54);color: rgb(35,35,35);border-color: rgb(0,0,0);" step="0.001"></div>
+                    <div class="col"><input class="form-control" type="number" name="r2" placeholder="r2 (Ω)" style="margin: 5px;background: rgba(244,244,244,0.54);color: rgb(35,35,35);border-color: rgb(0,0,0);" step="0.001"></div>
+                </div>
+                <div class="row" style="margin-top: 12px;">
+                    <div class="col" style="text-align: right;"><button class="btn btn-outline-danger" type="reset" style="margin-left: 10px;text-align: center;">Clear</button><button class="btn btn-success" type="submit" style="margin-left: 10px;text-align: center;">Calculate</button></div>
+                </div>
+            </form>
+            <h6 style="color: rgb(255,0,0);">{{ error }}</h6>
+        </div>
+    </div>
+    <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/js/script.min.js"></script>
+</body>
+
+</html>
